@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Existing styles... */
+
+/* Enhanced Nav Link Styles */
+.nav-link {
+  @apply relative py-2 text-gray-700 transition-colors duration-300;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 100%;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+  z-index: -1;
+  border-radius: 0.25rem;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-link.active {
+  @apply text-blue-600 font-medium;
+}
+
+/* Mobile nav animation */
+.mobile-nav-enter {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.mobile-nav-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+
+.mobile-nav-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-nav-exit-active {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.3s ease-in;
+}
