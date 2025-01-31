@@ -1,9 +1,6 @@
-import MinimalistShapes from './MinimalistShapes'
-
 const Hero = () => {
   return (
     <section id="home" className="relative pt-20 pb-16 overflow-hidden bg-gradient-to-b from-white to-blue-50/50">
-      <MinimalistShapes />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative z-10">
